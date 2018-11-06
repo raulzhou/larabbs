@@ -30,3 +30,10 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 //Auth::routes路由包含路由结束
 
+Route::resource('users','UsersController',['only'=>['show','update','edit']]);
+//resource路由相当于下面三个路由：
+//Route::get('/users/{user}', 'UsersController@show')->name('users.show'); //显示用户个人信息页面
+//Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit'); //显示编辑个人资料页面
+//Route::patch('/users/{user}', 'UsersController@update')->name('users.update'); //处理 edit 页面提交的更改
+//由此可见，resource路由方法可以节省很多代码，推荐使用
+
