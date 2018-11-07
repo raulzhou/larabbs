@@ -37,3 +37,5 @@ Route::resource('users','UsersController',['only'=>['show','update','edit']]);
 //Route::patch('/users/{user}', 'UsersController@update')->name('users.update'); //处理 edit 页面提交的更改
 //由此可见，resource路由方法可以节省很多代码，推荐使用
 
+
+Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
